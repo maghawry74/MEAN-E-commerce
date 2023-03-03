@@ -1,0 +1,5 @@
+<div class=" relative min-h-[100vh] w-3/4 mx-auto mt-16 py-16">
+    <main [@routeAnimations]="outletref.isActivated? outletref.activatedRoute:''">
+        <router-outlet #outletref="outlet"></router-outlet>
+    </main>
+</div>

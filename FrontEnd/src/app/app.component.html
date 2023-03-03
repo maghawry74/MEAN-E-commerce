@@ -1,0 +1,5 @@
+<app-nav class="z-50"></app-nav>
+<main [@routeAnimations]="outletref.isActivated? outletref.activatedRoute:''">
+    <router-outlet #outletref="outlet"></router-outlet>
+</main>
+<app-footer></app-footer>

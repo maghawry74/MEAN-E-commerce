@@ -1,0 +1,139 @@
+<div class="border-b-4 pb-10">
+    <div class="w-full mt-5">
+        <h1 class="text-xl font-bold">Order By</h1>
+        <p class="font-semibold">{{order?.user?.FirstName}} {{order?.user?.LastName}}</p>
+        <p class="">{{order?.user?.Address?.governorate}}/{{order?.user?.Address?.City}}</p>
+        <p class="">{{order?.user?.Phone}}</p>
+        <p class="">{{order?.createdAt|date:"medium"}}</p>
+        <p class="font-semibold">Total: ${{order?.Price}}</p>
+    </div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
+        <table class="w-full text-sm text-center font-semibold text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Product name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Category
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Quantity
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Amount
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let product of order?.Products">
+                <tr>
+                    <td class="px-6 py-4 ">{{product.Product.ProductName}}</td>
+                    <td class="px-6 py-4">{{product.Product.Category}}</td>
+                    <td class="px-6 py-4">${{product.Product.Price}}</td>
+                    <td class="px-6 py-4">{{product.Quantity}}</td>
+                    <td class="px-6 py-4">{{product.Product.Amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="flex items-center flex-col gap-2 h-fit border-b-4 p-5">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-center font-bold text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        User Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Phone
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Totla Price
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-6 py-4">{{order?.user?.FirstName}} {{order?.user?.LastName}}</td>
+                    <td class="px-6 py-4">{{order?.user?.Address?.governorate}} - {{order?.user?.Address?.City}}</td>
+                    <td class="px-6 py-4">{{order?.user?.Phone}}</td>
+                    <td class="px-6 py-4">${{order?.Price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-center font-medium text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Product name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Category
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Quantity
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Amount
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let product of order?.Products">
+                <tr>
+                    <td class="px-6 py-4">{{product.Product.ProductName}}</td>
+                    <td class="px-6 py-4">{{product.Product.Category}}</td>
+                    <td class="px-6 py-4">${{product.Product.Price}}</td>
+                    <td class="px-6 py-4">{{product.Quantity}}</td>
+                    <td class="px-6 py-4">{{product.Product.Amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="flex justify-around gap-x-5 font-bold">
+    <h1>{{order?.user?.FirstName}} {{order?.user?.LastName}}</h1>
+    <h1>{{order?.user?.Address?.governorate}}/{{order?.user?.Address?.City}}</h1>
+    <h1>${{order?.Price}}</h1>
+</div> -->

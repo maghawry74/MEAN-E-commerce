@@ -1,0 +1,19 @@
+<div class="grid grid-rows-[12] grid-cols-1 justify-around my-14 w-3/4 mx-auto min-h-[100vh] sm:justify-center">
+    <ul class="row-start-1 w-full row-end-2 flex gap-5 py-10 my-14 font-bold ">
+        <li #f1 [ngClass]="{'text-indigo-700':activated[0]}" class="cursor-pointer text-xl" (click)="Filter(f1)">ALL
+        </li>
+        <li #f2 [ngClass]="{'text-indigo-700':activated[1]}" class="cursor-pointer text-xl" (click)="Filter(f2)">Home
+            Decor</li>
+        <li #f3 [ngClass]="{'text-indigo-700':activated[2]}" class="cursor-pointer text-xl" (click)="Filter(f3)">
+            DECORATION</li>
+        <li #f4 [ngClass]="{'text-indigo-700':activated[3]}" class="cursor-pointer text-xl" (click)="Filter(f4)">
+            Furniture
+        </li>
+        <li #f5 [ngClass]="{'text-indigo-700':activated[4]}" class="cursor-pointer text-xl" (click)="Filter(f5)">
+            Lighting
+        </li>
+    </ul>
+    <div ngClass="{'text-sm':true}" class="row-start-2 row-end-[12] grid lg:grid-cols-4 sm:grid-cols-2  gap-5 mx-auto">
+        <app-product2 *ngFor="let pro of FilterList" [product]="pro"></app-product2>
+    </div>
+</div>

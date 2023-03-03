@@ -1,0 +1,44 @@
+<h1 class="text-2xl font-bold">Add New Product</h1>
+<div class="grid grid-col-12 items-center">
+    <img #image [src]="img" alt="" class="w-[30rem]  col-start-1 col-end-3 rounded-xl">
+    <form [formGroup]="newProductForm" enctype="multipart/form-data"
+        class=" rounded-xl col-start-4 col-end-12 w-full text-black transition-all duration-300 flex flex-col gap-5 p-10 "
+        (submit)="submit($event)">
+        <input formControlName="ProductName" required type="text" aria-describedby="helper-text-explanation"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Product Name">
+        <input formControlName="Description" required type="text" aria-describedby="helper-text-explanation"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Description">
+        <input min="1" formControlName="Price" required type="number" aria-describedby="helper-text-explanation"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Price">
+        <select formControlName="Category" id="countries"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="Home Decor">Home Decor</option>
+            <option value="Decoration">Decoration</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Lighting">Lighting</option>
+        </select>
+        <input min="1" formControlName="Amount" required type="number" aria-describedby="helper-text-explanation"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Amount">
+        <input (change)="AddFile($event,image)" formControlName="image"
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            name="image" aria-describedby="user_avatar_help" required id="user_avatar" type="file"
+            accept="image/png, image/jpg, image/jpeg">
+        <h1 *ngIf="successMessageFlag" class="text-center font-semibold text-green-500">Product has been added
+            Successfully
+            ! </h1>
+        <h1 *ngIf="failureMessageFlag" class="text-center font-semibold text-red-500">An Error Occurred! </h1>
+        <div class="flex gap-5 justify-center">
+            <button (click)="hide()"
+                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                Close</button>
+            <button [ngClass]="{'bg-gray-400 opacity-50 hover:bg-gray-400':newProductForm.status=='INVALID'}"
+                [disabled]="newProductForm.status=='INVALID'" type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                Product</button>
+        </div>
+    </form>
+</div>

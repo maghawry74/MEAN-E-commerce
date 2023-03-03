@@ -1,0 +1,23 @@
+<div #root
+    class="container mb-28 mt-12 flex  lg:flex-row  sm:flex-col justify-center sm:items-center w-[75vw] mx-auto h-[70vh]">
+    <img src="assets/imgs/Slider/1 (4).jpg"
+        class="relative transition-all lg:w-4 lg:h-full sm:h-4 sm:w-[30rem] rounded-[3rem] object-cover blur-sm flex-grow duration-700"
+        alt="" [ngClass]="{'blur-none flex-grow-[10]':Activated[0],'flex-grow blur-sm':!Activated[0]}"
+        (click)="activate(0)">
+    <img src="assets/imgs/Slider/1 (1).jpg"
+        class="relative transition-all lg:w-4 lg:h-full sm:h-4 sm:w-[30rem] rounded-[3rem] object-cover blur-sm flex-grow duration-700"
+        alt="" [ngClass]="{'blur-none flex-grow-[10]':Activated[1],'flex-grow blur-sm':!Activated[1]}"
+        (click)="activate(1)">
+    <img src="assets/imgs/Slider/1 (6).jpg"
+        class="relative transition-all lg:w-4 lg:h-full sm:h-4 sm:w-[30rem] rounded-[3rem] object-cover blur-sm flex-grow duration-700"
+        alt="" [ngClass]="{'blur-none flex-grow-[10]':Activated[2],'flex-grow blur-sm':!Activated[2]}"
+        (click)="activate(2)">
+    <img src="assets/imgs/Slider/1 (3).jpg"
+        class="relative transition-all lg:w-4 lg:h-full sm:h-4 sm:w-[30rem] rounded-[3rem] object-cover blur-sm flex-grow duration-700"
+        alt="" [ngClass]="{'blur-none flex-grow-[10]':Activated[3],'flex-grow blur-sm':!Activated[3]}"
+        (click)="activate(3)">
+    <img src="assets/imgs/Slider/1 (5).jpg"
+        class="relative transition-all lg:w-4 lg:h-full sm:h-4 sm:w-[30rem] rounded-[3rem] object-cover blur-sm flex-grow duration-700"
+        alt="" [ngClass]="{'blur-none flex-grow-[10]':Activated[4],'flex-grow blur-sm':!Activated[4]}"
+        (click)="activate(4)">
+</div>

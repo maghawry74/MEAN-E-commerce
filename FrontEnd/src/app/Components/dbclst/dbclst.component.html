@@ -1,0 +1,26 @@
+<div class="bg-gray-100 flex my-5 justify-between items-center rounded-lg py-8 px-4">
+    <div class="flex gap-5">
+        <h1 (click)="changePanel('Products')" [ngClass]="{'text-indigo-600':activated=='Products'}"
+            class="lg:text-3xl sm:text-2xl my-5 cursor-pointer">Products</h1>
+        <h1 (click)="changePanel('Orders')" [ngClass]="{'text-indigo-600':activated=='Orders'}"
+            class="lg:text-3xl sm:text-2xl my-5 cursor-pointer">Orders</h1>
+    </div>
+</div>
+<ng-container [ngSwitch]="activated">
+    <app-order-list *ngSwitchCase="'Orders'"></app-order-list>
+    <div *ngSwitchCase="'Products'">
+        <div
+            class="text-left grid grid-cols-6 p-5 border-t-2 border-b-2 lg:text-xl sm:text-base text-bold gap-5 justify-around items-center">
+            <h1>Product Name</h1>
+            <h1>Image</h1>
+            <h1>Price</h1>
+            <h1>Category</h1>
+            <h1>Amount</h1>
+            <button class="bg-green-500 text-white rounded-md lg:py-2 lg:px-4 sm:p-2 sm:rounded-sm max-w-fit"
+                (click)="ShowNewProductForm()"><img src="assets/icons/more (1).png" alt=""></button>
+        </div>
+        <ng-container *ngFor="let product of Api.getProducts()">
+            <app-admin-product [product]="product"></app-admin-product>
+        </ng-container>
+    </div>
+</ng-container>

@@ -1,0 +1,18 @@
+<div class="flex flex-col justify-center items-center gap-5" (mouseover)="hover()" (mouseleave)="unhover()">
+    <div class="text-center relative overflow-hidden">
+        <img [src]=" product.image" alt="" class="cursor-pointer">
+        <button (click)="clickHander()"
+            class="py-2 px-4 text-sm bg-black text-white absolute left-[37%] transition-all duration-500"
+            [ngClass]="{'-translate-y-full':!isHovered}">
+            Quick LOOK</button>
+    </div>
+    <h1 class="text-xl font-bold">{{product.ProductName}}</h1>
+    <div class=" text-center relative overflow-hidden min-w-fit w-[6rem]">
+        <a [ngClass]="{'-translate-x-full':isHovered}"
+            class=" transition-all duration-500 cursor-pointer absolute text-base block font-bold"
+            (click)="addTocart()"> ADD To Cart
+        </a>
+        <h2 [ngClass]="{'translate-x-full':!isHovered}" class="z-20  duration-500 transition-all">
+            ${{product.Price}}</h2>
+    </div>
+</div>

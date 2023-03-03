@@ -1,0 +1,50 @@
+<div class="w-full my-16 ">
+    <div class="p-5 flex justify-center items-center" style="
+    background-image: url('../../../assets/imgs/2.jpg');
+       background-size:cover;
+       background-position:0dvw; 
+        height: 400px;
+        ">
+        <h1 class="text-7xl text-center text-white">About US</h1>
+    </div>
+</div>
+
+<div class="grid grid-col-6 mt-5 items-center justify-center mx-auto gap-10 w-4/5 text-center">
+    <div class="col-start-1 col-end-3 lg:block sm:hidden">
+        <img src="../../../assets/imgs/1.jpg">
+    </div>
+    <div class="lg:col-start-4 lg:col-end-6 text-center lg:mx-auto sm:col-start-1 sm:col-end-6">
+        <div>
+            <button #but1 class="transition-all duration-500 px-10 py-5 sm:px-5 sm:py-2.5"
+                [ngClass]="{'bg-black text-white':active=='ABOUT US','bg-white text-black':active!='ABOUT US'}"
+                (click)="fun($event)">ABOUT
+                US</button>
+            <button #but2 class="transition-all duration-500 px-10 py-5 sm:px-5 sm:py-2.5" (click)="fun($event)"
+                [ngClass]="{'bg-black text-white':active=='SERVICES','bg-white text-black':active!='SERVICES'}">SERVICES</button>
+            <button #but3 class="transition-all duration-500 px-10 py-5 sm:px-5 sm:py-2.5" (click)="fun($event) "
+                [ngClass]="{'bg-black text-white':active=='STORY','bg-white text-black':active!='STORY'}">STORY</button>
+        </div>
+        <div>
+            <ng-container [ngSwitch]="active">
+                <p class=" my-5 text-gray-600" *ngSwitchCase="'ABOUT US'">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat aliquid expedita incidunt dolore
+                    atque, adipisci quod voluptate, iusto iste minus quis architecto sed corporis! Dolore rem explicabo
+                    doloribus voluptatum sint totam quos ullam itaque atque recusandae hic similique adipisci illo quae
+                </p>
+                <p class=" my-5 text-gray-600" *ngSwitchCase="'SERVICES'">
+                    ipsam nesciunt facilis qui minus cumque, provident harum reiciendis laboriosam vitae! Provident
+                    optio placeat vel! Itaque beatae culpa ipsa quam reiciendis, labore vero quod soluta a expedita
+                    similique reprehenderit placeat amet impedit dicta eius id pariatur ullam, minus ea ex ut facere ad
+                    cumque asperiores!
+                </p>
+                <p class=" my-5 text-gray-600" *ngSwitchCase="'STORY'">
+                    dignissimos molestiae culpa perspiciatis, quibusdam illum atque consequuntur, asperiores assumenda
+                    aliquam, dolore iste necessitatibus eos ex. Molestiae obcaecati maiores quaerat nam, nemo aut
+                    beatae, ipsa impedit amet eaque quo cumque reiciendis. Quisquam recusandae, totam iste consequatur
+                </p>
+            </ng-container>
+            <a routerLink="/Home" routerLinkActive="text-idngo-400">LEARN MORE </a>
+        </div>
+    </div>
+</div>
+<app-review-slider class="w-3/4 mx-auto"></app-review-slider>

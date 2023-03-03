@@ -1,0 +1,14 @@
+<div
+    class="lg:text-left sm:text-center lg:text-xl sm:text-base lg:px-5 sm:px-1 hover:bg-indigo-200 grid grid-cols-6 lg:gap-x-3 sm:ga-x-1 items-center justify-around my-6 py-5 border-b-2">
+    <h1 class="lg:text-xl sm:text-base font-semibold">{{product.ProductName}}</h1>
+    <img class="w-32" [src]="product.image">
+    <h1 class="lg:text-xl sm:text-basefont-semibold">${{product.Price}}</h1>
+    <h1 class="lg:text-xl sm:text-base font-semibold">{{product.Category}}</h1>
+    <h1 class="lg:text-xl sm:text-base font-semibold">{{product.Amount}}</h1>
+    <div class="flex">
+        <button class="mx-1 py-2 px-2 rounded text-white bg-green-500" (click)="EditProduct(product)"><img
+                src="assets/icons/pencil (1).png" alt=""></button>
+        <button class="mx-1 py-2 px-2 rounded text-white bg-red-500"
+            (click)="DeleteProduct(product._id,product.image)"><img src="assets/icons/delete.png" alt=""></button>
+    </div>
+</div>

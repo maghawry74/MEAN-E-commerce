@@ -1,0 +1,102 @@
+<div class="flex gap-x-10 justify-around items-center mt-5 w-4/5 mx-auto h-[100vh]">
+    <img src="assets/imgs/1.jpg" alt="" class="w-1/2 object-contain lg:block sm:hidden">
+    <form class="  px-10 max-h-[35rem]" [formGroup]="registerForm" (ngSubmit)="register(result)">
+        <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-6 group">
+                <input type="text" [formControl]="FirstName" name="floating_first_name" id="floating_first_name"
+                    class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder="First Name" required />
+                <p class="text-red-600 text-base" *ngIf="FirstName.errors?.required&&FirstName.touched">First Name is
+                    Required</p>
+                <p class="text-red-600 text-base" *ngIf="FirstName.errors?.minlength&&FirstName.touched">Min Length is 3
+                    Letters
+                </p>
+                <p class="text-red-600 text-base" *ngIf="FirstName.errors?.maxlength&&FirstName.touched">Max Length is
+                    12
+                    Letters
+                </p>
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+                <input type="text" formControlName="LastName" name="floating_last_name" id="floating_last_name"
+                    class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder="Last Name" required />
+                <p class="text-red-600 text-base" *ngIf="LastName.errors?.required&&LastName.touched">Last Name is
+                    Required</p>
+                <p class="text-red-600 text-base" *ngIf="LastName.errors?.minlength&&LastName.touched">Min Length is 3
+                    Letters
+                </p>
+                <p class="text-red-600 text-base" *ngIf="LastName.errors?.maxlength&&LastName.touched">Max Length is 12
+                    Letters
+                </p>
+            </div>
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+            <input type="email" formControlName="Email" name="floating_email" id="floating_email"
+                class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="Email" required />
+            <p class="text-red-600 text-base" *ngIf="Email.errors?.required&&Email.touched">Email is
+                Required</p>
+            <p class="text-red-600 text-base" *ngIf="Email.errors?.pattern&&Email.touched">Invalid Email
+            </p>
+            <p class="text-red-600 text-base" *ngIf="Email.errors?.EmailTaken&&Email.touched">Email Has been used Before
+            </p>
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+            <input type="password" formControlName="Password" name="floating_password" id="floating_password"
+                class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="Password" required />
+            <p class="text-red-600 text-base" *ngIf="Password.errors?.required&&Password.touched">Password is
+                Required</p>
+            <p class="text-red-600 text-sm" *ngIf="Password.errors?.pattern&&Password.touched">
+                Password Must be min 8 charachers with at least one lowercase, Uppercase, special characher,Number and
+                one
+                Symbol
+            </p>
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+            <input type="Password" formControlName="confirmPassword" name="repeat_password"
+                id="floating_repeat_password"
+                class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="Confirm Password" required />
+            <p class="text-red-600 text-base" *ngIf="confirmPassword.errors?.required&&confirmPassword.touched">Password
+                is
+                Required</p>
+            <p class="text-red-600 text-base" *ngIf="confirmPassword.errors?.noMatch&&confirmPassword.touched">Password
+                Doesn't Match
+            </p>
+        </div>
+        <div class="relative z-0 w-full mb-6 group">
+            <input type="tel" formControlName="Phone" name="floating_phone" id="floating_phone"
+                class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="Phone" required />
+            <p class="text-red-600 text-base" *ngIf="Phone.errors?.required&&Phone.touched">Phone is
+                Required</p>
+            <p class="text-red-600 text-base" *ngIf="Phone.errors?.pattern&&Phone.touched">Invalid Phone Number</p>
+            <p class="text-red-600 text-base" *ngIf="Phone.errors?.PhoneTaken&&Phone.touched">Phone Number Has Been used
+                Before</p>
+        </div>
+        <div class="w-full">
+            <label for="governorate">governorate</label>
+            <select id="governorate " formControlName="governorate"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full py-2 px-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="Cairo">Cairo</option>
+                <option value="Giza">Giza</option>
+                <option value="Menofia">Menofia</option>
+                <option value="Qalubia">Qalubia</option>
+            </select>
+            <p class="text-red-600 text-base" *ngIf="governorate.errors?.required&&governorate.touched"> governorate
+                is
+                Required</p>
+            <input type="text" formControlName="city" name="floating_phone" id="floating_phone"
+                class="block py-2.5 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder="City" required />
+            <p class="text-red-600 text-base" *ngIf="city.errors?.required&&city.touched"> City
+                is
+                Required</p>
+        </div>
+        <p #result class=" text-base text-center my-2"></p>
+        <button type="submit" [disabled]="registerForm.status=='INVALID'"
+            [ngClass]="{'bg-gray-400 opacity-50 hover:bg-gray-500':registerForm.status=='INVALID'}"
+            class="text-white lg:mx-auto bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:w-1/2 sm:w-fit px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    </form>
+</div>

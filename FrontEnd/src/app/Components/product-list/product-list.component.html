@@ -1,0 +1,13 @@
+<div class="flex justify-between w-3/4 mx-auto my-10">
+    <h1 class="text-2xl font-bold">FEATURED ITEMS</h1>
+    <div class="flex items-center">
+        <img class="cursor-pointer" (click)="Prev()" src="assets/icons/down.png" alt="">
+        <img class="cursor-pointer" (click)="Next()" src="assets/icons/up.png" alt="">
+    </div>
+</div>
+<div class="wrapper max-w-fit relative ">
+    <div #carousel class="carousel whitespace-nowrap overflow-hidden scroll-smooth w-4/5 mx-auto">
+        <div #prod class="inline-block w-1/3 mx-1" *ngFor="let product of productList">
+            <app-product #pro [Product]="product"></app-product>
+        </div>
+    </div>

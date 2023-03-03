@@ -1,0 +1,61 @@
+<h1 class="text-left text-2xl font-bold">Product Details</h1>
+<div class="grid grid-col-8 gap-20 items-center mt-5">
+    <img [src]="product.image" class="w-[32rem] rounded-xl mx-auto col-start-1 col-end-4">
+    <div class=" rounded-xl col-start-4 col-end-8 w-full text-black transition-all duration-300 ">
+        <form [formGroup]="editForm" enctype="multipart/form-data"
+            class="font-semibold w-full rounded-xl flex flex-col gap-2 ">
+            <div>
+                <label class="font-normal block text-base mb-2" for="">Name</label>
+                <input [(ngModel)]="product.ProductName" formControlName="ProductName" required type="text"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Product Name">
+            </div>
+            <div>
+                <label class="font-normal block text-base mb-2" for="">Description</label>
+                <textarea [(ngModel)]="product.Description" formControlName="Description" required type="text"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 border border-gray-300 h-[7rem] text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Description"></textarea>
+            </div>
+            <div>
+                <label class="font-normal block text-base mb-2" for="">Price</label>
+                <input [(ngModel)]="product.Price" min="1" formControlName="Price" required type="number"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Price">
+            </div>
+            <div>
+                <label class="font-normal block text-base mb-2" for="">Category</label>
+                <select [(ngModel)]="product.Category" formControlName="Category" id="countries"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="Home Decor">Home Decor</option>
+                    <option value="Decoration">Decoration</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Lighting">Lighting</option>
+                </select>
+            </div>
+            <div>
+                <label class="font-normal block text-base mb-2" for="">Amount</label>
+                <input [(ngModel)]="product.Amount" min="1" formControlName="Amount" required type="number"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Amount">
+            </div>
+            <h1 *ngIf="SuccessMessage" class="text-center font-semibold text-green-500">Product has been Edited
+                Successfully
+            </h1>
+            <h1 *ngIf="ErrorMessage" class="text-center font-semibold text-red-500">An Error Occurred! </h1>
+            <div class="flex mt-4 gap-5 justify-center">
+                <button (click)="hide()"
+                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                    Close</button>
+                <button (click)="EditProduct()" [disabled]="((editForm.status=='INVALID') || (editForm.pristine==true))"
+                    [ngClass]="{'bg-gray-400 opacity-50 hover:bg-gray-400':editForm.status=='INVALID'|| (editForm.pristine==true)}"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit
+                    Product</button>
+            </div>
+            <ng-content class="w-4 absolute right-3 top-3 cursor-pointer"></ng-content>
+        </form>
+    </div>
+</div>

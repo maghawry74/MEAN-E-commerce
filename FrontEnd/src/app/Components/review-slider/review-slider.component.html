@@ -1,0 +1,58 @@
+<div class="relative  mx-20 h-[60vh] overflow-hidden my-20 py-20 bg-[rgb(243,243,243)] sm:text-sm">
+    <h1 class="text-center text-3xl my-5">WHAT THEY’RE SAYING
+    </h1>
+    <div class=" absolute flex flex-col gap-5 text-center transition-all ease-out duration-700"
+        [style.transform]="'translateX(' + slider[0] + '%)'">
+        <p class="text-xl text-center w-3/4 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum a
+            nulla magni
+            fugit recusandae delectus,
+            dolorum illum minima quos corporis placeat cumque libero quod voluptates distinctio ducimus neque rerum
+            alias.</p>
+        <h2 class="font-bold text-base">MASON ROBERSON</h2>
+        <h2 class="font-bold">Analyst</h2>
+    </div>
+    <div class="absolute flex flex-col gap-5 text-center transition-all ease-out duration-700"
+        [style.transform]="'translateX(' + slider[1] + '%)'">
+        <p class="text-xl text-center w-3/4 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum a
+            nulla magni
+            fugit recusandae delectus,
+            dolorum illum minima quos corporis placeat cumque libero quod voluptates distinctio ducimus neque rerum
+            alias.</p>
+        <h2 class="font-bold text-base">MASON ROBERSON</h2>
+        <h2 class="font-bold">Analyst</h2>
+    </div>
+    <div class="absolute flex flex-col gap-5 text-center transition-all ease-out duration-700"
+        [style.transform]="'translateX(' + slider[2] + '%)'">
+        <p class="text-xl text-center w-3/4 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum a
+            nulla magni
+            fugit recusandae delectus,
+            dolorum illum minima quos corporis placeat cumque libero quod voluptates distinctio ducimus neque rerum
+            alias.</p>
+        <h2 class="font-bold text-base">MASON ROBERSON</h2>
+        <h2 class="font-bold">Analyst</h2>
+    </div>
+    <button type="button" (click)="Prev()"
+        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none 0"
+        data-carousel-prev>
+        <span
+            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg aria-hidden="true"
+                class="w-5 h-5 text-black sm:w-6 sm:h-6 dark:text-gray-800  hover:p-7 hover:rounded-full  transition-all"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </span>
+    </button>
+    <button type="button" (click)="Next()"
+        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-next>
+        <span
+            class=" inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg aria-hidden="true"
+                class="w-5 h-5 text-black sm:w-6 sm:h-6 dark:text-gray-800  hover:p-7 hover:rounded-full transition-all"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </span>
+    </button>
+</div>
