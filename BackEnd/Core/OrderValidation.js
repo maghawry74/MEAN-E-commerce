@@ -9,3 +9,4 @@ module.exports.post = [
   body("Products[*].Quantity").isNumeric().withMessage("Product Quantity Should be a Number"),
   body("Products[*].Product").isNumeric().withMessage("Product Id Should be a Number"),
 ]
+module.exports.Patch = [body("_id").isMongoId().withMessage("Order Id Should be A mongo ID")]

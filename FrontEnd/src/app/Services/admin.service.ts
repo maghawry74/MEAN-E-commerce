@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IDBOrder } from '../Model/DBOrder';
 import { IProduct } from '../Model/Iproduct';
 
 @Injectable({
@@ -11,6 +12,7 @@ export class AdminService {
   orderConnectionString: string = 'http://localhost:5000/orders';
   token?: string;
   Products: IProduct[] = [];
+  orders: IDBOrder[] = [];
   headers?: HttpHeaders;
   constructor(private http: HttpClient) {
     this.Logged = localStorage.getItem('token') == null ? false : true;
@@ -41,7 +43,12 @@ export class AdminService {
       headers: headers,
     });
   }
-  getOrders() {
-    return this.http.get(this.orderConnectionString);
+  getOrders(statue: number) {
+    return this.http.get(`${this.orderConnectionString}/${statue}`);
+  }
+  patchOrder(order: any) {
+    let token = `Bearer ${localStorage.getItem('AdminToken')}`;
+    let headers = new HttpHeaders({ Authorization: token });
+    return this.http.patch(this.orderConnectionString, order, { headers });
   }
 }

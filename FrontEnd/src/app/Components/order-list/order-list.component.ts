@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({
@@ -8,10 +9,20 @@ import { AdminService } from 'src/app/Services/admin.service';
 })
 export class OrderListComponent {
   orders = [];
-  constructor(private Admin: AdminService) {
-    Admin.getOrders().subscribe({
+  constructor(public Admin: AdminService) {
+    Admin.getOrders(0).subscribe({
       next: (data: any) => {
-        this.orders = data.data;
+        this.Admin.orders = data.data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+  update(ele: any) {
+    this.Admin.getOrders(ele.value).subscribe({
+      next: (data: any) => {
+        this.Admin.orders = data.data;
       },
       error: (err) => {
         console.log(err);

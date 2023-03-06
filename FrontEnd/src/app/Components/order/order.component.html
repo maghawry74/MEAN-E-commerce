@@ -1,6 +1,15 @@
 <div class="border-b-4 pb-10">
     <div class="w-full mt-5">
-        <h1 class="text-xl font-bold">Order By</h1>
+        <div class="flex justify-start items-center gap-x-5">
+            <ng-container [ngSwitch]="order?.Delivered">
+                <img src="assets/icons/checked.png" *ngSwitchCase="true" alt="" class="w-6 cursor-pointer"
+                    (click)="FinishOder()">
+                <img src="assets/icons/red.png" *ngSwitchCase="false" alt="" class="w-6 cursor-pointer"
+                    (click)="FinishOder()">
+            </ng-container>
+
+            <h1 class="text-xl font-bold">Order By</h1>
+        </div>
         <p class="font-semibold">{{order?.user?.FirstName}} {{order?.user?.LastName}}</p>
         <p class="">{{order?.user?.Address?.governorate}}/{{order?.user?.Address?.City}}</p>
         <p class="">{{order?.user?.Phone}}</p>

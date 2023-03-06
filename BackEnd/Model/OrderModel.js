@@ -7,6 +7,7 @@ const OrderSchema = mongoose.Schema(
     Products: {
       type: [{ _id: false, Quantity: Number, Product: { type: Number, ref: "Product" } }],
     },
+    Delivered: { type: Boolean, default: false },
   },
   { timestamps: true }
 )

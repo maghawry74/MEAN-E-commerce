@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { AdminService } from 'src/app/Services/admin.service';
+import { ProductsApiService } from 'src/app/Services/products-api.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent {
     private http: HttpClient,
     private Admin: AdminService,
     private route: Router,
-    private user: UserService
+    private user: UserService,
+    private Api: ProductsApiService
   ) {
     this.route.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -53,7 +55,11 @@ export class LoginComponent {
       this.user.LoggedUser = data.user;
       localStorage.setItem('User', JSON.stringify(this.user.LoggedUser));
       localStorage.setItem('UserToken', data.token);
-      this.route.navigateByUrl('/Products');
+      if (this.Api.getCartCount() != 0) {
+        this.route.navigateByUrl('/Cart');
+      } else {
+        this.route.navigateByUrl('/Products');
+      }
     }
   };
   private failedLogin = () => {

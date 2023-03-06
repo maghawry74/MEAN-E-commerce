@@ -68,7 +68,6 @@ let PatchProduct = async (request, response, next) => {
 }
 let DeleteProduct = async (request, response, next) => {
   try {
-    console.log(request)
     let data = await ProductSchema.deleteOne({ _id: request.body.id })
     if (data.deletedCount == 0) {
       let err = new Error("Product isn't Founded")
